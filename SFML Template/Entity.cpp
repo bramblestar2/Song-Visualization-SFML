@@ -4,19 +4,19 @@ Entity::Entity(std::string _Type, sf::Vector2f _Position) : Dynamic(_Type)
 {
 	setPosition(_Position);
 
-	setHealth(0);
+	setMaxHealth(0);
 	setDamage(0);
 }
 
 Entity::Entity(std::string _Type) : Dynamic(_Type)
 {
-	setHealth(0);
+	setMaxHealth(0);
 	setDamage(0);
 }
 
 Entity::Entity() : Dynamic("Entity")
 {
-	setHealth(0);
+	setMaxHealth(0);
 	setDamage(0);
 }
 
@@ -47,6 +47,21 @@ int Entity::getDamage() const
 	return damage;
 }
 
+int Entity::getHealth() const
+{
+	return health;
+}
+
+int Entity::getMaxHealth() const
+{
+	return maxHealth;
+}
+
+sf::Vector2f Entity::getVelocity() const
+{
+	return velocity;
+}
+
 void Entity::setPosition(sf::Vector2f _New_Position)
 {
 	position = _New_Position;
@@ -62,7 +77,12 @@ void Entity::setDamage(const int _Damage)
 	damage = _Damage;
 }
 
-void Entity::setHealth(const int _Health)
+void Entity::setMaxHealth(const int _Health)
 {
-	health = _Health;
+	maxHealth = _Health;
+}
+
+void Entity::setVelocity(sf::Vector2f _Velocity)
+{
+	velocity = _Velocity
 }

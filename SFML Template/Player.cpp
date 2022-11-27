@@ -17,7 +17,7 @@ Player::Player() : Entity("Player")
 
 	setLives(3);
 	Entity::setDamage(1);
-	Entity::setHealth(10);
+	Entity::setMaxHealth(10);
 }
 
 Player::~Player()
@@ -29,9 +29,24 @@ void Player::setPlayArea(sf::FloatRect _Play_Area)
 	playArea = _Play_Area;
 }
 
+bool Player::insidePlayArea(const sf::Vector2f _Position) const
+{
+	return playArea.contains(_Position);
+}
+
 int Player::getLives() const
 {
 	return lives;
+}
+
+bool Player::lostLife() const
+{
+	return Entity::getHealth() < 0;
+}
+
+bool Player::hasDied() const
+{
+	return lives < 0;
 }
 
 void Player::update()
@@ -56,5 +71,12 @@ void Player::setLives(const int _Lives)
 
 void Player::move()
 {
-	
+	if (sf::Keyboard::isKeyPressed(moveKeys.up))
+	{ }
+	if (sf::Keyboard::isKeyPressed(moveKeys.down))
+	{ }
+	if (sf::Keyboard::isKeyPressed(moveKeys.left))
+	{ }
+	if (sf::Keyboard::isKeyPressed(moveKeys.right))
+	{ }
 }

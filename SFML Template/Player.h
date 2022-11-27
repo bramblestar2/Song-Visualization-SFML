@@ -10,7 +10,10 @@ public:
 	//Area that the player will be locked inside of
 	void setPlayArea(sf::FloatRect _Play_Area);
 
+	bool insidePlayArea(const sf::Vector2f _Position) const;
 	int getLives() const;
+	bool lostLife() const;
+	bool hasDied() const;
 
 	void update() override;
 	void render(sf::RenderTarget& window) override;
