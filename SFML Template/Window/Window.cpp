@@ -1,8 +1,10 @@
 #include "Window.h"
+#include "../Player.h"
 
 Window::Window()
 {
 	initWindow();
+	
 }
 
 Window::~Window()
@@ -24,6 +26,12 @@ void Window::run()
 void Window::render()
 {
 	window->clear();
+
+
+	sf::RenderTexture* players = &game.renderPlayer(sf::Vector2f(window->getSize()));
+	window->draw(sf::Sprite(players->getTexture()));
+	delete players;
+
 
 	window->display();
 }
@@ -54,5 +62,6 @@ void Window::updateSFMLEvents()
 
 void Window::initWindow()
 {
-	window = new sf::RenderWindow(sf::VideoMode(100, 100), "TITLE", sf::Style::Default);
+	window = new sf::RenderWindow(sf::VideoMode(500, 400), "TITLE", sf::Style::Default);
+	window->setFramerateLimit(60);
 }

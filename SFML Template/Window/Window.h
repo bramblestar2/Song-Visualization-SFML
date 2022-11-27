@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <vector>
+#include "../GameLogic.h"
 
 class Window
 {
@@ -21,5 +23,7 @@ private:
 
 	sf::RenderWindow* window;
 	sf::Event event;
+
+	GameLogic game;
 };
 
