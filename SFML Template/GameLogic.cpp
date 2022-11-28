@@ -59,7 +59,7 @@ void GameLogic::initGraphics()
 				if (sprites.at(i)->getType() == type)
 				{
 					Gif* gif = sprites.at(k).get();
-					((Entity*)objects.at(i))->setGif(gif);
+					((Entity*)objects.at(i))->setGif(*gif);
 				}
 			}
 		}
