@@ -1,5 +1,6 @@
 #pragma once
 #include "Dynamic.h"
+#include "Gif.h"
 
 class Entity : public Dynamic
 {
@@ -21,6 +22,8 @@ public:
 	int getHealth() const;
 	int getMaxHealth() const;
 	sf::Vector2f getVelocity() const;
+
+	virtual void setGif(const Gif _Gif) = 0;
 protected:
 	void setPosition(sf::Vector2f _New_Position);
 	void setPosition(const float _X, const float _Y);

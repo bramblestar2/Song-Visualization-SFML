@@ -1,6 +1,5 @@
 #include "Player.h"
 
-
 Player::Player() : Entity("Player")
 {
 	moveKeys = {
@@ -57,11 +56,12 @@ void Player::update()
 
 void Player::render(sf::RenderTarget& window)
 {
+
 }
 
-void Player::setGif(const std::string _Folder, const std::string _Format, const std::string _FileExtension, const int _FrameCount, const int _StartFrame)
+void Player::setGif(const Gif _Gif)
 {
-	gif = Gif(_Folder, _Format, _FileExtension, _FrameCount, _StartFrame);
+	gif = _Gif;
 }
 
 bool Player::outBounds()

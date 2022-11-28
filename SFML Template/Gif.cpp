@@ -95,6 +95,23 @@ Gif& Gif::operator=(const Gif& right)
 	return *this;
 }
 
+Gif& Gif::operator=(Gif& right)
+{
+	this->folder = right.folder;
+	this->format = right.format;
+	this->fileExtension = right.fileExtension;
+	this->frames = right.frames;
+	this->startFrame = right.startFrame;
+	this->currentFrame = right.currentFrame;
+
+	//this->texture		=	new sf::Texture();
+	this->texture.reset(new sf::Texture());
+
+	this->texture->loadFromFile(this->folder + getFrame());
+
+	return *this;
+}
+
 std::string Gif::getFrame()
 {
 	std::string temp = format;

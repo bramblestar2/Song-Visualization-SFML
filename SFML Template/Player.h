@@ -19,7 +19,9 @@ public:
 	void update() override;
 	void render(sf::RenderTarget& window) override;
 
-	void setGif(const std::string _Folder, const std::string _Format, const std::string _FileExtension, const int _FrameCount, const int _StartFrame);
+	//void setGif(const std::string _Folder, const std::string _Format, 
+	//	const std::string _FileExtension, const int _FrameCount, const int _StartFrame) override;
+	void setGif(const Gif _Gif) override;
 
 protected:
 	//returns true if player is out of bounds

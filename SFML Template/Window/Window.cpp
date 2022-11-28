@@ -27,14 +27,25 @@ void Window::render()
 {
 	window->clear();
 
+	sf::Vector2f renderingSize(window->getSize());
 
-	sf::RenderTexture* players = &game.renderPlayer(sf::Vector2f(window->getSize()));
-	window->draw(sf::Sprite(players->getTexture()));
-	delete players;
+	sf::RenderTexture players, enemies, bullets;
+	sf::ContextSettings settings;
+	players.create(renderingSize.x, renderingSize.y, settings);
+	enemies.create(renderingSize.x, renderingSize.y, settings);
+	bullets.create(renderingSize.x, renderingSize.y, settings);
+	
+	game.renderPlayer(renderingSize, players);
+	players.display();
+	window->draw(sf::Sprite(players.getTexture()));
 
-	sf::RenderTexture* enemies = &game.renderEnemies(sf::Vector2f(window->getSize()));
-	window->draw(sf::Sprite(enemies->getTexture()));
-	delete enemies;
+	game.renderEnemies(renderingSize, enemies);
+	enemies.display();
+	window->draw(sf::Sprite(enemies.getTexture()));
+	
+	game.renderBullets(renderingSize, bullets);
+	bullets.display();
+	window->draw(sf::Sprite(bullets.getTexture()));
 
 
 	window->display();
@@ -42,6 +53,7 @@ void Window::render()
 
 void Window::update()
 {
+	game.update();
 }
 
 void Window::updateDt()

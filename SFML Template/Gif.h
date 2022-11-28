@@ -22,6 +22,7 @@ public:
 	void update(sf::RectangleShape& _Shape);
 
 	Gif& operator=(const Gif& right);
+	Gif& operator=(Gif& right);
 
 private:
 	int frames;
