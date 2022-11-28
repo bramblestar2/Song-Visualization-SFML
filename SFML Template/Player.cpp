@@ -1,5 +1,6 @@
 #include "Player.h"
 
+
 Player::Player() : Entity("Player")
 {
 	moveKeys = {
@@ -51,10 +52,16 @@ bool Player::hasDied() const
 
 void Player::update()
 {
+	gif.update(sPlayer);
 }
 
 void Player::render(sf::RenderTarget& window)
 {
+}
+
+void Player::setGif(const std::string _Folder, const std::string _Format, const std::string _FileExtension, const int _FrameCount, const int _StartFrame)
+{
+	gif = Gif(_Folder, _Format, _FileExtension, _FrameCount, _StartFrame);
 }
 
 bool Player::outBounds()

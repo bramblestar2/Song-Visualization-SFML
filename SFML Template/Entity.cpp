@@ -84,5 +84,5 @@ void Entity::setMaxHealth(const int _Health)
 
 void Entity::setVelocity(sf::Vector2f _Velocity)
 {
-	velocity = _Velocity
+	velocity = _Velocity;
 }

@@ -32,6 +32,10 @@ void Window::render()
 	window->draw(sf::Sprite(players->getTexture()));
 	delete players;
 
+	sf::RenderTexture* enemies = &game.renderEnemies(sf::Vector2f(window->getSize()));
+	window->draw(sf::Sprite(enemies->getTexture()));
+	delete enemies;
+
 
 	window->display();
 }
